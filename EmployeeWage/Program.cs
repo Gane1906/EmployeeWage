@@ -8,7 +8,7 @@ namespace EmployeeWage
             Console.WriteLine("Welcome to Employee problem");
             ComputeEmployee computeEmployee = new ComputeEmployee();
             computeEmployee.attandance();
-            computeEmployee.wagePerDay();
+            computeEmployee.calculateWage();
         }
     } 
 }
