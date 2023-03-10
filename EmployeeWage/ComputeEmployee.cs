@@ -24,10 +24,15 @@ namespace EmployeeWage
             int wage = 0;
             Random random = new Random();
             int check = random.Next(0, 3);
-            if (check == IS_FULL_TIME)
-                wage = WAGE_PER_HR * NO_OF_HRS;
-            if (check == IS_PART_TIME)
-                wage = WAGE_PER_HR * (NO_OF_HRS / 2);
+            switch (check)
+            {
+                case IS_FULL_TIME:
+                    wage = NO_OF_HRS * WAGE_PER_HR;
+                    break;
+                case IS_PART_TIME:
+                    wage = WAGE_PER_HR * (NO_OF_HRS / 2);
+                    break;
+            }
             Console.WriteLine("Daily wage of an employee is: "+wage);
         }
     }
