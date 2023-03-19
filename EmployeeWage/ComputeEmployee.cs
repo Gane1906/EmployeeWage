@@ -9,7 +9,7 @@ namespace EmployeeWage
 {
     public class ComputeEmployee
     {
-        const  int IS_PRESENT = 1, WAGE_PER_HR = 20, NO_OF_HRS = 8, PART_TIME_HRS = 4, IS_FULL_TIME = 1, IS_PART_TIME = 2, NO_OF_DAYS = 20, MAX_HRS = 100;
+        const  int IS_PRESENT = 1, IS_FULL_TIME = 1, IS_PART_TIME = 2;
         public static void attandance()
         {
             Random random = new Random();
@@ -19,24 +19,24 @@ namespace EmployeeWage
             else 
                 Console.WriteLine("Employee is absent");
         }
-        public static void calculateWage()
+        public static void calculateWage(int wagePerHr,int fullTimeHr,int partTimeHrs,int noOfDays,int maxHrs)
         {
             int wage = 0, totalHrs = 0;
             Random random = new Random();
-            for(int day = 0; day < NO_OF_DAYS && totalHrs<MAX_HRS; day++)
+            for(int day = 0; day < noOfDays && totalHrs<maxHrs; day++)
             {
                 int check = random.Next(0, 3);
                 switch (check)
                 {
                     case IS_FULL_TIME:
-                        totalHrs += NO_OF_HRS;
+                        totalHrs += fullTimeHr;
                         break;
                     case IS_PART_TIME:
-                        totalHrs += (NO_OF_HRS / 2);
+                        totalHrs += partTimeHrs;
                         break;
                 }
             }
-            wage = WAGE_PER_HR * totalHrs;
+            wage = wagePerHr * totalHrs;
             Console.WriteLine("Monthly wage of an employee is: "+wage);
         }
     }
